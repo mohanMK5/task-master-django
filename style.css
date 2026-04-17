@@ -1,0 +1,491 @@
+/* 
+ * TaskMaster - To-Do List Application Stylesheet
+ * 
+ * This file contains all the styling for the task management application.
+ * Designed with a clean, modern look using a soft color palette.
+ */
+
+/* ============================================
+   CSS Variables - Define reusable colors and values
+   ============================================ */
+:root {
+    /* Color Palette */
+    --primary-color: #2c3e50;      /* Dark blue-gray */
+    --accent-color: #3498db;        /* Bright blue */
+    --success-color: #27ae60;       /* Green */
+    --danger-color: #e74c3c;        /* Red */
+    --warning-color: #f39c12;       /* Orange */
+    
+    /* Background Colors */
+    --bg-main: #f0f2f5;            /* Light gray background */
+    --bg-card: #ffffff;            /* White card background */
+    --bg-header: #2c3e50;          /* Dark header */
+    
+    /* Text Colors */
+    --text-primary: #2c3e50;        /* Dark text */
+    --text-secondary: #7f8c8d;     /* Gray text */
+    --text-light: #ffffff;         /* White text */
+    --text-muted: #95a5a6;         /* Muted text */
+    
+    /* Shadows */
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.15);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.2);
+    
+    /* Border Radius */
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+}
+
+/* ============================================
+   Base Styles - Reset and default styles
+   ============================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ============================================
+   Layout - Container and wrapper styles
+   ============================================ */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.task-container {
+    padding: 30px 0;
+}
+
+/* ============================================
+   Header Styles
+   ============================================ */
+header {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #34495e 100%);
+    color: var(--text-light);
+    padding: 40px 0;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+}
+
+header .subtitle {
+    font-size: 1rem;
+    opacity: 0.8;
+    font-weight: 300;
+}
+
+/* ============================================
+   Main Content Area
+   ============================================ */
+main {
+    flex: 1;
+}
+
+/* ============================================
+   Section Headings
+   ============================================ */
+h2 {
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+/* ============================================
+   Add Task Form Styles
+   ============================================ */
+.add-task-section {
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    padding: 30px;
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 25px;
+}
+
+.task-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group {
+    width: 100%;
+}
+
+.form-control {
+    width: 100%;
+    padding: 15px 18px;
+    border: 2px solid #e0e0e0;
+    border-radius: var(--radius-sm);
+    font-size: 1rem;
+    font-family: inherit;
+    transition: var(--transition-normal);
+    background-color: #fafafa;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    background-color: #fff;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+.form-control::placeholder {
+    color: var(--text-muted);
+}
+
+/* ============================================
+   Button Styles
+   ============================================ */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 28px;
+    border: none;
+    border-radius: var(--radius-sm);
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition-normal);
+    text-decoration: none;
+    font-family: inherit;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--accent-color) 0%, #2980b9 100%);
+    color: var(--text-light);
+    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+.btn-icon {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.btn-delete {
+    background: transparent;
+    color: var(--danger-color);
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    border: 1px solid var(--danger-color);
+}
+
+.btn-delete:hover {
+    background: var(--danger-color);
+    color: var(--text-light);
+}
+
+/* ============================================
+   Stats Section Styles
+   ============================================ */
+.stats-section {
+    margin-bottom: 25px;
+}
+
+.stats {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.stat-item {
+    background: var(--bg-card);
+    padding: 20px 35px;
+    border-radius: var(--radius-md);
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+    min-width: 120px;
+}
+
+.stat-item.pending {
+    border-left: 4px solid var(--warning-color);
+}
+
+.stat-item.completed {
+    border-left: 4px solid var(--success-color);
+}
+
+.stat-number {
+    display: block;
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.stat-label {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 5px;
+}
+
+/* ============================================
+   Task List Styles
+   ============================================ */
+.task-list-section {
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    padding: 30px;
+    box-shadow: var(--shadow-sm);
+}
+
+.task-list {
+    list-style: none;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+    transition: var(--transition-normal);
+}
+
+.task-item:last-child {
+    border-bottom: none;
+}
+
+.task-item:hover {
+    background-color: #f9f9f9;
+}
+
+/* ============================================
+   Task Item - Completed State
+   ============================================ */
+.task-item.completed {
+    background-color: #f8f9fa;
+}
+
+.task-item.completed .task-title {
+    text-decoration: line-through;
+    color: var(--text-muted);
+}
+
+.task-item.completed .task-description {
+    color: var(--text-muted);
+}
+
+.task-item.completed .task-date {
+    color: var(--text-muted);
+}
+
+/* ============================================
+   Checkbox Styles
+   ============================================ */
+.task-toggle {
+    text-decoration: none;
+    flex-shrink: 0;
+}
+
+.checkbox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    color: transparent;
+    transition: var(--transition-normal);
+    cursor: pointer;
+}
+
+.checkbox:hover {
+    border-color: var(--accent-color);
+}
+
+.checkbox.checked {
+    background-color: var(--success-color);
+    border-color: var(--success-color);
+    color: var(--text-light);
+}
+
+/* ============================================
+   Task Content Styles
+   ============================================ */
+.task-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.task-title {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: 5px;
+    word-break: break-word;
+}
+
+.task-description {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+.task-date {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+/* ============================================
+   Empty State Styles
+   ============================================ */
+.empty-state {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.empty-icon {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    opacity: 0.7;
+}
+
+.empty-state h3 {
+    font-size: 1.3rem;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+}
+
+.empty-state p {
+    color: var(--text-secondary);
+    font-size: 1rem;
+}
+
+/* ============================================
+   Footer Styles
+   ============================================ */
+footer {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    text-align: center;
+    padding: 20px 0;
+    margin-top: auto;
+}
+
+footer p {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* ============================================
+   Responsive Design
+   ============================================ */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    .container {
+        padding: 0 15px;
+    }
+    
+    .add-task-section,
+    .task-list-section {
+        padding: 20px;
+    }
+    
+    .stats {
+        gap: 15px;
+    }
+    
+    .stat-item {
+        padding: 15px 20px;
+        min-width: 90px;
+    }
+    
+    .stat-number {
+        font-size: 1.5rem;
+    }
+    
+    .task-item {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    
+    .task-content {
+        order: 2;
+        width: calc(100% - 50px);
+    }
+    
+    .task-toggle {
+        order: 1;
+    }
+    
+    .btn-delete {
+        order: 3;
+        margin-left: auto;
+    }
+    
+    .btn {
+        padding: 12px 20px;
+        font-size: 0.95rem;
+    }
+}
+
+/* ============================================
+   Animation Effects
+   ============================================ */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.task-item {
+    animation: fadeIn 0.3s ease forwards;
+}
+
+.task-item:nth-child(1) { animation-delay: 0s; }
+.task-item:nth-child(2) { animation-delay: 0.05s; }
+.task-item:nth-child(3) { animation-delay: 0.1s; }
+.task-item:nth-child(4) { animation-delay: 0.15s; }
+.task-item:nth-child(5) { animation-delay: 0.2s; }
+

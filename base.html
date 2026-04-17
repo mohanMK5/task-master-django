@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}TaskMaster - To-Do List{% endblock %}</title>
+    
+    <!-- Load static files (CSS) -->
+    {% load static %}
+    
+    <!-- Link to custom CSS -->
+    <link rel="stylesheet" href="{% static 'tasks/style.css' %}">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <h1>TaskMaster</h1>
+            <p class="subtitle">Manage your tasks efficiently</p>
+        </div>
+    </header>
+
+    <!-- Main Content Section -->
+    <main class="container">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 TaskMaster - Simple Task Management</p>
+        </div>
+    </footer>
+</body>
+</html>
+
